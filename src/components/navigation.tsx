@@ -1,6 +1,6 @@
 import clsx from "clsx/lite";
-import { useState } from "react";
 import { AnimatePresence, motion } from "motion/react";
+import { useState } from "react";
 
 export default function Navigation({ children }: { children: React.ReactNode; }) {
     const [isOpen, setIsOpen] = useState(false);
@@ -60,6 +60,7 @@ export default function Navigation({ children }: { children: React.ReactNode; })
 
                                 <motion.button
                                     type="button"
+                                    data-cursor-hover
                                     onClick={() => setIsOpen(false)}
                                     initial={{ transform: "translateY(100px)", filter: "blur(20px)", opacity: 0 }}
                                     transition={{ type: "spring", stiffness: 25, damping: 2, mass: 0.1 }}
@@ -79,7 +80,7 @@ export default function Navigation({ children }: { children: React.ReactNode; })
                 }
             </AnimatePresence>
 
-            <button type="button" onClick={() => setIsOpen(prev => !prev)} className="w-6 sm:w-8 h-fit text-white cursor-pointer hover:outline-2 focus-visible:outline-2 outline-offset-1 outline-zinc-100/20 focus-visible:outline-white rounded-lg">
+            <button type="button" data-cursor-hover onClick={() => setIsOpen(prev => !prev)} className="w-6 sm:w-8 h-fit text-white cursor-pointer hover:outline-2 focus-visible:outline-2 outline-offset-1 outline-zinc-100/20 focus-visible:outline-white rounded-lg">
                 <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" className={clsx("transition-all duration-300 ease-in-out", isOpen ? "rotate-90" : "rotate-0")}>
                     <title>Menu Icon</title>
                     <path fill="currentColor" d="M12 22c5.523 0 10-4.477 10-10S17.523 2 12 2S2 6.477 2 12s4.477 10 10 10" opacity=".5" />
@@ -100,6 +101,7 @@ function MobileLink({ href, className, children }: MobileLinkProps) {
     return (
         <motion.a
             href={href}
+            data-cursor-hover
             initial={{ transform: "translateY(100px)", filter: "blur(20px)", opacity: 0 }}
             transition={{ type: "spring", stiffness: 25, damping: 2, mass: 0.1 }}
             animate={{ transform: "translateY(0px)", filter: "blur(0px)", opacity: 1 }}

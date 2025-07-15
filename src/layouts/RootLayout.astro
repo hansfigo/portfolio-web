@@ -3,11 +3,12 @@ import "../styles/global.css";
 import { Font } from "astro:assets";
 import { ClientRouter } from 'astro:transitions';
 import LoadingIndicator from "astro-loading-indicator/component"
+import CursorFollower from "../components/cursor-follower";
 
 const { title, description } = Astro.props;
 
-const defaultTitle = "Nikola Tesla";
-const defaultDescription = "Nikola Tesla was a Serbian-American inventor, electrical engineer, mechanical engineer, and futurist who is best known for his contributions to the design of the modern alternating current (AC) electricity supply system.";
+const defaultTitle = "Hans Figo";
+const defaultDescription = "Software Developer & Artist. Passionate about technology and innovation, with a focus on creating impactful software solutions.";
 ---
 
 <!doctype html>
@@ -15,7 +16,7 @@ const defaultDescription = "Nikola Tesla was a Serbian-American inventor, electr
 	<head>
 		<meta charset="UTF-8" />
 		<meta name="viewport" content="width=device-width" />
-		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+		<link rel="icon" type="image/svg+xml" href="/favicon.png	" />
 		<meta name="generator" content={Astro.generator} />
 		<title>{title ?? defaultTitle}</title>
 		<meta name="description" content={description ?? defaultDescription} />
@@ -39,7 +40,8 @@ const defaultDescription = "Nikola Tesla was a Serbian-American inventor, electr
 		<LoadingIndicator color="#f4f4f5" height="2px" />
 
 	</head>
-	<body class="font-sans min-h-screen bg-zinc-900">
+	<body class="font-sans min-h-screen bg-zinc-900 cursor-none">
+		<CursorFollower client:load />
 		<slot />
 	</body>
 </html>
