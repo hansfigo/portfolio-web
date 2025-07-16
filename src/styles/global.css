@@ -4,18 +4,3 @@
 @theme inline {
 	--font-sans: var(--font-geist);
 }
-
-/* Custom cursor styles */
-* {
-	cursor: none !important;
-}
-
-/* Ensure all interactive elements have no cursor */
-a, button, input, textarea, select, [role="button"], [data-cursor-hover] {
-	cursor: none !important;
-}
-
-/* Force hide cursor on all elements */
-html, body, * {
-	cursor: none !important;
-}

@@ -3,7 +3,6 @@ import "../styles/global.css";
 import { Font } from "astro:assets";
 import { ClientRouter } from 'astro:transitions';
 import LoadingIndicator from "astro-loading-indicator/component"
-import CursorFollower from "../components/cursor-follower";
 
 const { title, description } = Astro.props;
 
@@ -40,8 +39,7 @@ const defaultDescription = "Software Developer & Artist. Passionate about techno
 		<LoadingIndicator color="#f4f4f5" height="2px" />
 
 	</head>
-	<body class="font-sans min-h-screen bg-zinc-900 cursor-none">
-		<CursorFollower client:load />
+	<body class="font-sans min-h-screen bg-zinc-900">
 		<slot />
 	</body>
 </html>
